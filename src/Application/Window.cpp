@@ -8,12 +8,21 @@ Window::Window() {
   assert(instancePtr == nullptr && "The window is already instantiated");
   instancePtr = this;
   glfwInit();
+
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+  // Fixed the error, "Failed to create GLFW window"
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1); // for Mac OS 
+
+  // this doesn't make any difference but...
+  #ifdef __APPLE__
+  std::cout << "I'm apple machine" << std::endl;
+  glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); 
+  #endif
+  
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
   glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
-
+  
   window = glfwCreateWindow(windowWidth, windowHeight, name, nullptr, nullptr);
   glfwMakeContextCurrent(window);
 
@@ -69,8 +78,13 @@ void Window::setupCallbacks() {
 
   glEnable(GL_DEBUG_OUTPUT);
   glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-  glDebugMessageCallback(onOpenGlMessage, nullptr);
-  glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+  
+  // for Mac OS
+  // Uncomment to fix segment fault like below
+  // "zsh: segmentation fault  ./glCraft"
+  //glDebugMessageCallback(onOpenGlMessage, nullptr);
+  //glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+  
   glfwSwapInterval(1);
 
   glfwSetWindowRefreshCallback(window, onRefreshWindow);

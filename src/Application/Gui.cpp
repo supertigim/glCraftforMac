@@ -17,7 +17,7 @@ Gui::Gui() {
   ImGui::CreateContext();
   ImGui::StyleColorsDark();
   ImGui_ImplGlfw_InitForOpenGL(context, true);
-  ImGui_ImplOpenGL3_Init("#version 450 core");
+  ImGui_ImplOpenGL3_Init("#version 410 core"); // For Mac OS
 }
 
 void Gui::update() {

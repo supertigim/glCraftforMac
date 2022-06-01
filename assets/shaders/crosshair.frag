@@ -1,6 +1,7 @@
-#version 450 core
+//#type fragment
+#version 410 core
 
-layout(depth_less) out float gl_FragDepth;
+//layout(depth_less) out float gl_FragDepth;
 
 out vec4 color;
 

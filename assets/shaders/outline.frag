@@ -1,6 +1,6 @@
-#version 450 core
+#version 410 core
 
-layout(depth_less) out float gl_FragDepth;
+//layout(depth_less) out float gl_FragDepth;
 
 in vec3 vert_pos;
 in vec2 vert_uv;

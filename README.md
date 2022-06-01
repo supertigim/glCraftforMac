@@ -30,6 +30,10 @@ To make this project avaialable on Mac OS, some codes have been modified. Please
   #  "Failed to open the file: default.glc"
   ```
 
+## Reference  
+
+- [Mac computers that use OpenCL and OpenGL graphics](https://support.apple.com/en-us/HT202823)  
+
 ## (Original) glCraft
 
 **A minecraft clone made with OpenGL, written in C++**
