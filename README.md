@@ -1,4 +1,36 @@
-# glCraft
+# glCraft for Mac
+
+To make this project avaialable on Mac OS, some codes have been modified. Please make sure that this changes is only tested on the following environment.  
+
+![MAC system information](./screenshots/mac_system_info.png)  
+
+- How to build it using CMake
+
+  - Clone the repository
+
+  ```shell
+  % git clone --recursive https://github.com/supertigim/glCraftforMac.git
+  ```
+
+  - Build the project *the build_type can be either Release or Debug*
+  
+  ```shell
+  % cd glCraftfoMac
+  % mkdir build
+  % cd build
+  % cmake ..
+  % make -j4
+  ```
+
+  - Run the game on Linux *with an optional save to load*:
+
+  ```shell
+  % ./glCraft
+  # Ignore the error shown below 
+  #  "Failed to open the file: default.glc"
+  ```
+
+## (Original) glCraft
 
 **A minecraft clone made with OpenGL, written in C++**
 

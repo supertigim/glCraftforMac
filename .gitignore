@@ -49,3 +49,5 @@ fabric.properties
 *.iml
 out
 gen
+build/
+.DS_Store
